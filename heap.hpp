@@ -24,12 +24,14 @@ class heap
             heapify();
         }
 
+        // push heap
         void push(T element)
         {
             heap_vec.push_back(element);
             heapify();
         }
 
+        // pop heap
         T pop()
         {
             T temp = heap_vec[0];
@@ -41,16 +43,19 @@ class heap
             return temp;
         }
 
+        // returns size of heap
         int size()
         {
             return static_cast<int>(heap_vec.size());
         }
 
+        // returns true if heap empty
         bool is_empty()
         {
             return heap_vec.empty();
         }
 
+        // deletes heap elements
         void clear()
         {
             heap_vec.clear();
@@ -69,7 +74,7 @@ class heap
 
         std::vector<T>  heap_vec;
 
-
+        // used to heapify
         void heapify_down(int i)
         {
             int largest = i;
@@ -93,6 +98,7 @@ class heap
             }
         }
 
+        // heapify algo
         void heapify()
         {
             for (int i = (size() - 1) / 2; i >= 0; --i)
@@ -109,17 +115,19 @@ class heap
 //                heapify_up(parent(i));
 //            }
 //        }
+//
+//        int parent(int i)
+//        {
+//            return (i - 1) / 2;
+//        }
 
-        int parent(int i)
-        {
-            return (i - 1) / 2;
-        }
-
+        // returns left node
         int left(int i)
         {
             return (2 * i + 1);
         }
 
+        // returns right node
         int right(int i)
         {
             return(2 * i + 2);
